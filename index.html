@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="config.css">
+    <title>Streamer.bot Config</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/jsoneditor/10.2.0/jsoneditor.css" rel="stylesheet" type="text/css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jsoneditor/10.2.0/jsoneditor.min.js"></script>
+    <script type="text/javascript" src="https://unpkg.com/@streamerbot/client/dist/streamerbot-client.js"></script>
+    <script type="text/javascript" src="config.js"></script>
+  </head>
+  
+  <body>
+    <div id="configContent" style="display: none">
+      <h1 id="title"></h1>
+      <hr/>
+      <div id="configArea">
+      </div>
+      <hr/>
+      <div id="footer">
+        <input id="doneButton" type="button" value="Done" onclick="window.close()"/>
+      </div>
+      <div id="configEditor" style="display: none">
+        <hr/>
+        <button id="getJson">Copy JSON to Clipboard</button>
+        <div id="jsonEditor"></div>
+
+      </div>
+    </div>
+    
+    <div id="landingPage">
+      <div id="landingUI">
+        <h2>Streamer.bot Extension Configurator</h2>
+        Enter your Streamer.bot WebSocket Server details below
+        <hr/>
+        <div class="landingConfigRow" id="landingPortConfig">
+          <div>
+            <label for="landingHost">Address</label>
+            <input type="text" id="landingHost"/>
+          </div>
+          <div>
+            <label for="landingPort">Port</label>
+            <input type="text" id="landingPort" length="4"/>
+          </div>
+          <div>
+            <label for="landingEndpoint">Endpoint</label>
+            <input type="text" id="landingEndpoint" />
+          </div>
+        </div>
+        <div class="landingConfigRow">
+          <div>
+            <label for="landingPassword">Password</label>
+            <input type="password" id="landingPassword" />
+          </div>
+          <div>
+            <label for="landingPassword">Secure Connection</label>
+            <input type="checkbox" id="landingSecure" />
+          </div>
+        </div>
+        <div id="footer">
+          <input id="landingPageConnect" type="button" value="Connect" style="width: 100%"/>
+        </div>
+      </div>
+      <div id="landingHelp">
+        <h2>Why Are You Seeing This Screen?</h2>
+        <hr/>
+        <p>This page is unable to connect to your Streamer.bot's websocket server, so that it can access and update extension configuration.
+        </p>
+        <h3>How Do You Fix It?</h3>
+        <h4>Step 1: Make Sure the Server Is Running</h4>
+        In Streamer.bot, go to the "Servers/Clients" > "WebSocket Server" tab, and press "Start Server".  Then press the "Connect" button above.
+        <center><img style="max-width: 75%" src="start-server-100.png" /></center>
+        You probably also want to check "Auto Start WebSocket Server", so it runs next time you start Streamer.bot.
+        <h4>Step 2: Verify The WebSocket Settings</h4>
+        If the server is running, but it still won't connect, make sure all of the settings above match Streamer.bot's server settings:
+        <ul>
+          <li><b>Address, Port, Endpoint</b>: should match exactly.</li>
+          <li><b>Password</b>: If "Authentication" is Enabled and a Password is set in Streamer.bot, then enter that same password here.</li>
+          <li><b>Secure Connection</b>: This is only for special situations when you have to use wss or https to tunnel to a remote streamer.bot. You're unlikely to need this, and if you do, you probably don't need this help anyway.</li>
+        </ul>
+        After updating any necessary settings, press the "Connect" button again.
+        <h4>Step 3: Reload</h4>
+        If you are sure the server is running, and the settings are correct, try reloading the page - it might just be stuck between connection attempts.
+        <hr>
+        <h3>Still not working?</h3>
+        Visit the <a href="https://github.com/WhazzItToYa/Streamerbot-WebConfigurator/">Web Configurator Github page</a> for more information, including how to contact the author for help.
+      </div>
+    </div>
+    
+  </body>
+  
+</html>
